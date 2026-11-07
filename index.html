@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Nouveau Taxi ! 1 (Leçons 11–20) - Học tập & Ôn thi Tiếng Pháp A1-A2</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        french: {
+                            50: '#f0f5ff',
+                            100: '#e0eaff',
+                            200: '#c7d7fe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            navy: '#0f172a',
+                            pastel: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 h-full flex flex-col md:flex-row overflow-hidden">
+
+    <!-- Mobile Header -->
+    <header class="md:hidden bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between z-30 shrink-0">
+        <div class="flex items-center space-x-2">
+            <div class="bg-blue-600 text-white p-2 rounded-lg font-bold text-sm">Taxi!</div>
+            <span class="font-bold text-slate-800 text-base">Leçons 11–20</span>
+        </div>
+        <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 focus:outline-none p-2">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-200 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:static shrink-0">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-blue-600 to-indigo-600 text-white p-2.5 rounded-xl shadow-md shadow-blue-500/20 font-bold">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slate-900 leading-tight">Le Nouveau Taxi ! 1</h1>
+                    <span class="text-xs text-blue-600 font-semibold uppercase tracking-wider">Trình độ A1–A2 (11–20)</span>
+                </div>
+            </div>
+            <button id="close-sidebar-btn" class="md:hidden text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-1.5">
+            <div class="text-xs font-semibold text-slate-400 px-3 pb-1 uppercase tracking-wider">Menu Chính</div>
+            <a href="#" onclick="switchView('dashboard')" data-view="dashboard" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-chart-pie w-5 text-center"></i>
+                <span>Tableau de bord</span>
+            </a>
+            <a href="#" onclick="switchView('lessons')" data-view="lessons" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-book-open w-5 text-center"></i>
+                <span>Leçons 11–20</span>
+            </a>
+
+            <div class="pt-4 text-xs font-semibold text-slate-400 px-3 pb-1 uppercase tracking-wider">Học tập & Luyện tập</div>
+            <a href="#" onclick="switchView('vocab')" data-view="vocab" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-language w-5 text-center"></i>
+                <span>Vocabulaire & Flashcards</span>
+            </a>
+            <a href="#" onclick="switchView('grammar')" data-view="grammar" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-spell-check w-5 text-center"></i>
+                <span>Grammaire & Ngữ pháp</span>
+            </a>
+            <a href="#" onclick="switchView('reading')" data-view="reading" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-book-reader w-5 text-center"></i>
+                <span>Compréhension écrite</span>
+            </a>
+            <a href="#" onclick="switchView('writing')" data-view="writing" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-pen-nib w-5 text-center"></i>
+                <span>Production écrite</span>
+            </a>
+
+            <div class="pt-4 text-xs font-semibold text-slate-400 px-3 pb-1 uppercase tracking-wider">Ôn thi & Đánh giá</div>
+            <a href="#" onclick="switchView('exams')" data-view="exams" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-file-lines w-5 text-center"></i>
+                <span>Examens blancs (Thi thử)</span>
+            </a>
+            <a href="#" onclick="switchView('results')" data-view="results" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-trophy w-5 text-center"></i>
+                <span>Tiến độ & Kết quả</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Trạng thái lưu trữ</span>
+                <span id="storage-status" class="font-semibold text-emerald-600 flex items-center"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Đã lưu</span>
+            </div>
+            <button onclick="resetAllData()" class="mt-2 w-full text-xs text-red-600 hover:text-red-700 bg-white border border-red-200 hover:bg-red-50 py-1.5 px-3 rounded-lg transition-colors font-medium">
+                Xóa dữ liệu tiến độ
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+        <!-- Backdrop for mobile sidebar -->
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/20 z-30 hidden md:hidden"></div>
+
+        <!-- Scrollable Content Area -->
+        <div id="main-content" class="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-8">
+            <!-- Dynamic Views Will Be Injected Here -->
+        </div>
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center space-x-3 text-sm">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-message">Thông báo thành công!</span>
+    </div>
+
+    <!-- Application JavaScript containing Data & Logic -->
+    <script>
+        // --- APPLICATION DATA: LEÇONS 11 TO 20 ---
+        const courseData = {
+            lessons: [
+                {
+                    id: 11,
+                    title: "Leçon 11: Bon voyage !",
+                    unit: "Unité 3",
+                    summary: "Khám phá đảo Martinique, phương tiện giao thông, cách dùng giới từ en/à, mạo từ và vị trí địa lý.",
+                    vocab: [
+                        { fr: "la Martinique", ipa: "/la maʁtinik/", type: "n.f.", meaning: "đảo Martinique", ex: "La Martinique est une belle île des Antilles." },
+                        { fr: "un hôtel", ipa: "/œ̃ nɔtɛl/", type: "n.m.", meaning: "khách sạn", ex: "Nous réservons une chambre dans un hôtel." },
+                        { fr: "une île", ipa: "/yn il/", type: "n.f.", meaning: "hòn đảo", ex: "C'est une grande île avec de magnifiques plages." },
+                        { fr: "une plage", ipa: "/yn plaʒ/", type: "n.f.", meaning: "bãi biển", ex: "Les touristes vont à la plage pour se baigner." },
+                        { fr: "une terrasse", ipa: "/yn tɛʁas/", type: "n.f.", meaning: "sân hiên, ban công", ex: "J'aime prendre le petit déjeuner sur la terrasse." },
+                        { fr: "une piscine", ipa: "/yn pisin/", type: "n.f.", meaning: "bể bơi", ex: "Cet hôtel possède une grande piscine extérieure." },
+                        { fr: "l'air conditionné", ipa: "/lɛʁ kɔ̃disjɔne/", type: "n.m.", meaning: "điều hòa nhiệt độ", ex: "La chambre est équipée de l'air conditionné." },
+                        { fr: "une agence de voyages", ipa: "/yn aʒɑ̃s də vwajaʒ/", type: "n.f.", meaning: "công ty du lịch", ex: "Elle travaille dans une agence de voyages." },
+                        { fr: "un aéroport", ipa: "/œ̃ naeʁopɔʁ/", type: "n.m.", meaning: "sân bay", ex: "Le bus nous emmène directement à l'aéroport." },
+                        { fr: "partir", ipa: "/paʁtiʁ/", type: "v.", meaning: "khởi hành, ra đi", ex: "Ils partent en vacances samedi matin." },
+                        { fr: "prendre", ipa: "/pʁɑ̃dʁ/", type: "v.", meaning: "bắt, đi (phương tiện)", ex: "Je prends le bus pour aller à l'hôtel." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Giới từ chỉ phương tiện giao thông (EN vs À)",
+                            definition: "Dùng để diễn đạt phương tiện đi lại.",
+                            formula: "EN + phương tiện kín (en bus, en train, en avion) | À + phương tiện mở/tự lực (à pied, à vélo, à moto)",
+                            example: "Nous allons à l'hôtel en bus, puis nous visitons la ville à pied.",
+                            note: "Người Việt hay nhầm thành 'par bus'. Nhớ quy tắc: có cabin chui vào trong dùng en, trần/đi bộ dùng à."
+                        },
+                        {
+                            title: "2. Cấu trúc câu diễn đạt địa điểm với 'C'est'",
+                            definition: "Dùng để định vị hoặc nhận xét.",
+                            formula: "C'est + vị trí/địa lý | C'est + mạo từ + danh từ | C'est + tính từ",
+                            example: "La Martinique, c'est une très belle île. C'est au nord de l'île.",
+                            note: "Dùng linh hoạt trong miêu tả địa điểm du lịch."
+                        },
+                        {
+                            title: "3. Đại từ không định danh 'ON'",
+                            definition: "Chủ ngữ bất định dùng phổ biến trong tiếng Pháp.",
+                            formula: "Động từ luôn chia ở ngôi thứ 3 số ít (như il/elle).",
+                            example: "On va au restaurant ce soir ? (= Nous allons...) | À la Martinique, on parle français. (= Les gens parlent...)",
+                            note: "Ý nghĩa có thể là 'chúng tôi' (thân mật) hoặc 'mọi người / người ta'."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Hỏi và chỉ vị trí", dialog: "– Où se trouve l'hôtel La Marina ?\n– C'est à l'ouest de l'île, au bord de la mer." },
+                        { situation: "Đưa ra lời khuyên du lịch", dialog: "Allez au musée Gauguin, c'est très intéressant ! Visitez Fort-de-France en bus !" }
+                    ],
+                    exercises: [
+                        {
+                            id: 1101, type: "conjugaison",
+                            question: "Chia động từ trong ngoặc ở hiện tại: Tu (partir) __________ quand en vacances ? – Je (prendre) __________ l'avion demain.",
+                            options: ["pars / prends", "part / prend", "partez / prenez", "pars / prenons"],
+                            answer: 0,
+                            explanation: "Tu đi với pars (động từ partir nhóm 3), Je đi với prends (động từ prendre nhóm 3)."
+                        },
+                        {
+                            id: 1102, type: "qcm",
+                            question: "Điền giới từ thích hợp: Nous voyageons __________ avion et nous visitons la ville __________ pied.",
+                            options: ["en / à", "à / en", "par / à", "en / en"],
+                            answer: 0,
+                            explanation: "Avion là phương tiện kín dùng 'en', đi bộ dùng cụm cố định 'à pied'."
+                        },
+                        {
+                            id: 1103, type: "qcm",
+                            question: "Đại từ 'on' trong câu 'À la Martinique, on parle français' tương đương với:",
+                            options: ["nous", "les gens (người ta)", "vous", "ils"],
+                            answer: 1,
+                            explanation: "Trong ngữ cảnh này, 'on' mang nghĩa chung là 'người ta / mọi người'."
+                        }
+                    ]
+                },
+                {
+                    id: 12,
+                    title: "Leçon 12: Marseille",
+                    unit: "Unité 3",
+                    summary: "Khám phá thành phố Marseille, bưu thiếp du lịch, ôn tập mạo từ kết hợp và thức mệnh lệnh.",
+                    vocab: [
+                        { fr: "le Vieux-Port", ipa: "/lə vjø pɔʁ/", type: "n.m.", meaning: "Cảng cổ Marseille", ex: "Le Vieux-Port est le cœur historique de Marseille." },
+                        { fr: "un château", ipa: "/œ̃ ʃɑto/", type: "n.m.", meaning: "lâu đài", ex: "On visite le château d'If en bateau." },
+                        { fr: "une calanque", ipa: "/yn kalɑ̃k/", type: "n.f.", meaning: "vịnh nhỏ ven biển đá vôi", ex: "Les calanques de Marseille sont magnifiques." },
+                        { fr: "un office de tourisme", ipa: "/œ̃ nofis də tuʁism/", type: "n.m.", meaning: "văn phòng thông tin du lịch", ex: "Demandez un plan à l'office de tourisme." },
+                        { fr: "une carte postale", ipa: "/yn kaʁt pɔstal/", type: "n.f.", meaning: "bưu thiếp", ex: "J'écris une carte postale à mes parents." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Mạo từ kết hợp (Articles contractés)",
+                            definition: "Sự kết hợp giữa giới từ à / de và mạo từ xác định le / les.",
+                            formula: "à + le = au | à + les = aux | de + le = du | de + les = des",
+                            example: "Je vais au musée. / Je viens du centre.",
+                            note: "Lưu ý à la và de la giữ nguyên."
+                        },
+                        {
+                            title: "2. Thức mệnh lệnh (Impératif)",
+                            definition: "Dùng để ra lệnh hoặc đưa ra lời khuyên.",
+                            formula: "Bỏ chủ ngữ (tu, nous, vous). Động từ chia ở ngôi tu, nous, vous (bỏ s ở nhóm 1 ngôi tu).",
+                            example: "Tourne à gauche ! / Prenez le métro !",
+                            note: "Ví dụ: Va, allons, allez."
+                        },
+                        {
+                            title: "3. Trạng từ chỉ địa điểm Y",
+                            definition: "Dùng để thay thế cho cụm từ chỉ nơi chốn bắt đầu bằng à.",
+                            formula: "Đứng trước động từ chính.",
+                            example: "Tu vas à Marseille ? – Oui, j'y vais en TGV.",
+                            note: "Giúp câu văn gọn gàng, tránh lặp từ."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Viết bưu thiếp du lịch", dialog: "Chère Pauline,\nJe suis à Marseille. Il fait très beau. J'habite dans un hôtel près du Vieux-Port. Bises !" }
+                    ],
+                    exercises: [
+                        {
+                            id: 1201, type: "qcm",
+                            question: "Chọn đáp án đúng điền vào chỗ trống: Je vais __________ musée des Beaux-Arts.",
+                            options: ["à le", "au", "à la", "aux"],
+                            answer: 1,
+                            explanation: "musée là danh từ giống đực số ít, kết hợp với à + le thành au."
+                        },
+                        {
+                            id: 1202, type: "transformez",
+                            question: "Viết lại dùng đại từ Y: 'Tu vas à Marseille cet été ?' -> 'Oui, nous __________ allons.'",
+                            options: ["y", "en", "le", "les"],
+                            answer: 0,
+                            explanation: "'y' thay thế cho nơi chốn bắt đầu bằng à (à Marseille)."
+                        }
+                    ]
+                },
+                {
+                    id: 13,
+                    title: "Leçon 13: Un aller simple",
+                    unit: "Unité 4",
+                    summary: "Mua vé tàu, hỏi giờ giấc, lịch trình, động từ partir và cách dùng 'Je voudrais...'.",
+                    vocab: [
+                        { fr: "un aller simple", ipa: "/œ̃ nale sɛ̃pl/", type: "n.m.", meaning: "vé một chiều", ex: "Je voudrais un aller simple pour Lyon." },
+                        { fr: "un aller-retour", ipa: "/œ̃ nale ʁtuʁ/", type: "n.m.", meaning: "vé khứ hồi", ex: "Un aller-retour Paris-Marseille." },
+                        { fr: "un billet", ipa: "/œ̃ bijɛ/", type: "n.m.", meaning: "tấm vé", ex: "Voilà votre billet de train, monsieur." },
+                        { fr: "une heure", ipa: "/yn œʁ/", type: "n.f.", meaning: "giờ, tiếng", ex: "Quelle heure est-il ?" },
+                        { fr: "une voie", ipa: "/yn vwa/", type: "n.f.", meaning: "đường ray, đường số (nhà ga)", ex: "Le TGV part voie 3." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Hỏi và nói giờ (Demander et dire l'heure)",
+                            definition: "Cách diễn đạt thời gian trong ngày bằng tiếng Pháp.",
+                            formula: "Quelle heure est-il ? -> Il est + [số] + heure(s). (dîner à midi / minuit)",
+                            example: "Il est 8h15 (huit heures et quart) | Il est 8h45 (neuf heures moins le quart)",
+                            note: "Chú ý dùng 'et quart' (15 phút) và 'moins le quart' ( kém 15)."
+                        },
+                        {
+                            title: "2. Động từ PARTIR (Khởi hành)",
+                            definition: "Chia động từ nhóm 3 diễn tả việc ra đi.",
+                            formula: "Je pars, tu pars, il/elle part, nous partons, vous partez, ils/elles partent.",
+                            example: "Je pars pour Paris à 7h18.",
+                            note: "Thường đi với giới từ pour (đến đâu) hoặc à (lúc mấy giờ)."
+                        },
+                        {
+                            title: "3. Yêu cầu lịch sự với 'Je voudrais...'",
+                            definition: "Dùng điều kiện cách của động từ vouloir để yêu cầu lịch sự.",
+                            formula: "Je voudrais + [nom] / [verbe à l'infinitif]",
+                            example: "Je voudrais un billet de train, s'il vous plaît.",
+                            note: "Lịch sự hơn nhiều so với 'Je veux'."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Mua vé tại quầy ga tàu", dialog: "– Bonjour, je voudrais un aller simple pour Lyon.\n– Vous partez quand ?\n– Mardi prochain à 8h." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1301, type: "qcm",
+                            question: "Cách nói '10h30' bằng tiếng Pháp là:",
+                            options: ["Il est dix heures et quart", "Il est dix heures et demie", "Il est onze heures moins dix", "Il est dix heures pile"],
+                            answer: 1,
+                            explanation: "30 phút tương ứng với 'et demie'."
+                        },
+                        {
+                            id: 1302, type: "conjugaison",
+                            question: "Chia động từ partir: Nous (partir) __________ à 8 heures.",
+                            options: ["partons", "partez", "partent", "part"],
+                            answer: 0,
+                            explanation: "Ngôi nous đi với đuôi -ons -> partons."
+                        }
+                    ]
+                },
+                {
+                    id: 14,
+                    title: "Leçon 14: À Londres",
+                    unit: "Unité 4",
+                    summary: "Nghề nghiệp nam/nữ, động từ faire, đặt câu hỏi với 'Est-ce que'.",
+                    vocab: [
+                        { fr: "un informaticien / une informaticienne", ipa: "/ɛ̃fɔʁmatisjɛ̃/", type: "n.", meaning: "kỹ sư tin học (nam/nữ)", ex: "Elle est informaticienne." },
+                        { fr: "un serveur / une serveuse", ipa: "/sɛʁvœʁ/", type: "n.", meaning: "nhân viên phục vụ", ex: "Il travaille comme serveur." },
+                        { fr: "un vendeur / une vendeuse", ipa: "/vɑ̃dœʁ/", type: "n.", meaning: "nhân viên bán hàng", ex: "Une vendeuse dans un grand magasin." },
+                        { fr: "un acteur / une actrice", ipa: "/aktœʁ/", type: "n.", meaning: "diễn viên", ex: "C'est un acteur célèbre." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Động từ FAIRE (Làm, chơi thể thao)",
+                            definition: "Động từ bất quy tắc nhóm 3.",
+                            formula: "Je fais, tu fais, il/elle fait, nous faisons [nufəzɔ̃], vous faites, ils/elles font.",
+                            example: "Qu'est-ce que tu fais dans la vie ? Nous faisons du sport.",
+                            note: "Chú ý phát âm đặc biệt ở ngôi nous và vous faites."
+                        },
+                        {
+                            title: "2. Quy tắc tạo giống cái nghề nghiệp",
+                            definition: "Cách chuyển đổi đuôi danh từ chỉ nghề nghiệp.",
+                            formula: "-eur -> -euse (vendeur/vendeuse) | -teur -> -trice (directeur/directrice) | -ien -> -ienne (informaticien/informaticienne)",
+                            example: "Il est serveur -> Elle est serveuse.",
+                            note: "Một số từ giữ nguyên như secrétaire, photographe."
+                        },
+                        {
+                            title: "3. Đặt câu hỏi với 'EST-CE QUE'",
+                            definition: "Công thức đặt câu hỏi nghi vấn phổ biến.",
+                            formula: "Từ để hỏi (Où, Quand, Comment...) + est-ce que + Sujet + Verbe ?",
+                            example: "Où est-ce que tu travailles ?",
+                            note: "Giúp câu hỏi chuẩn ngữ pháp và ngữ điệu tự nhiên."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Hỏi nghề nghiệp", dialog: "– Qu'est-ce que tu fais dans la vie ?\n– Je suis informaticien." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1401, type: "transformez",
+                            question: "Chuyển sang giống cái: 'Il est informaticien.' -> 'Elle est __________.'",
+                            options: ["informaticienne", "informaticant", "informaticieuse", "informaticèze"],
+                            answer: 0,
+                            explanation: "Đuôi -ien chuyển sang giống cái thành -ienne."
+                        },
+                        {
+                            id: 1402, type: "conjugaison",
+                            question: "Chia động từ faire: Vous (faire) __________ quoi ce soir ?",
+                            options: ["faites", "faisons", "font", "fais"],
+                            answer: 0,
+                            explanation: "Ngôi vous đi với faites."
+                        }
+                    ]
+                },
+                {
+                    id: 15,
+                    title: "Leçon 15: Le dimanche matin",
+                    unit: "Unité 4",
+                    summary: "Thói quen cuối tuần, động từ phản thân, phân biệt faire de vs jouer à trong thể thao.",
+                    vocab: [
+                        { fr: "le footing", ipa: "/lə fɔtiŋ/", type: "n.m.", meaning: "chạy bộ", ex: "Je fais du footing tous les dimanches." },
+                        { fr: "la natation", ipa: "/la natasjɔ̃/", type: "n.f.", meaning: "môn bơi lội", ex: "Elle fait de la natation." },
+                        { fr: "le ménage", ipa: "/lə menaʒ/", type: "n.m.", meaning: "việc nhà", ex: "Je fais le ménage le samedi." },
+                        { fr: "se lever", ipa: "/sə ləve/", type: "v.pron.", meaning: "thức dậy", ex: "Je me lève tôt." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Động từ phản thân (Verbes pronominaux)",
+                            definition: "Động từ có đại từ phản thân đi kèm (se lever, se coucher).",
+                            formula: "je me, tu te, il se, nous nous, vous vous, ils se + verbe.",
+                            example: "Je me lève à 7 heures. Ils se couchent tard.",
+                            note: "Ở thì quá khứ kép, động từ phản thân luôn đi với trợ động từ ÊTRE."
+                        },
+                        {
+                            title: "2. Phân biệt FAIRE DE vs JOUER À",
+                            definition: "Cách kết hợp giới từ với tên môn thể thao.",
+                            formula: "FAIRE DE + thể thao/hoạt động chung (du, de la, de l') | JOUER À + thể thao đồng đội/có bóng (au, à la, aux)",
+                            example: "Je fais du footing. Je joue au football.",
+                            note: "Rất hay bị nhầm lẫn giữa chơi thể thao và tập thể thao."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Hỏi thói quen chủ nhật", dialog: "– Qu'est-ce que tu fais le dimanche matin ?\n– Je me lève tard et je fais du sport." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1501, type: "qcm",
+                            question: "Điền đúng cấu trúc thể thao: Il fait __________ natation et il joue __________ football.",
+                            options: ["de la / au", "du / à la", "de / de", "la / le"],
+                            answer: 0,
+                            explanation: "Natation là giống cái (de la), football là giống đực (au)."
+                        }
+                    ]
+                },
+                {
+                    id: 16,
+                    title: "Leçon 16: Une journée avec Laure Manaudou",
+                    unit: "Unité 4",
+                    summary: "Thời gian biểu, chuỗi hoạt động sử dụng từ nối thứ tự.",
+                    vocab: [
+                        { fr: "un entraînement", ipa: "/œ̃ nɑ̃tʁɛnmɑ̃/", type: "n.m.", meaning: "buổi luyện tập", ex: "Elle reprend l'entraînement à 15h30." },
+                        { fr: "s'entraîner", ipa: "/sɑ̃tʁɛne/", type: "v.pron.", meaning: "luyện tập", ex: "La championne s'entraîne tous les jours." },
+                        { fr: "se détendre", ipa: "/sə detɑ̃dʁ/", type: "v.pron.", meaning: "thư giãn", ex: "Pour se détendre, elle écoute de la musique." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Từ nối thứ tự thời gian (Connecteurs chronologiques)",
+                            definition: "Dùng để sắp xếp các sự việc theo trình tự thời gian.",
+                            formula: "D'abord (Trước tiên) -> Ensuite / Puis (Sau đó) -> Après (Sau khi) -> Enfin (Cuối cùng)",
+                            example: "D'abord je me lève, ensuite je prends le petit déjeuner, enfin je pars.",
+                            note: "Giúp bài viết và đoạn văn mạch lạc, logic."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Kể lịch trình hằng ngày", dialog: "Le matin, d'abord je me lave, puis je prends mon petit déjeuner." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1601, type: "qcm",
+                            question: "Sắp xếp từ nối cho câu mở đầu: '__________, je fais ma toilette.'",
+                            options: ["D'abord", "Enfin", "Aussi", "Mais"],
+                            answer: 0,
+                            explanation: "Mở đầu chuỗi hoạt động ta dùng 'D'abord'."
+                        }
+                    ]
+                },
+                {
+                    id: 17,
+                    title: "Leçon 17: On fait des crêpes ?",
+                    unit: "Unité 5",
+                    summary: "Thực phẩm, đơn vị đo lường, mạo từ bộ phận và động từ boire.",
+                    vocab: [
+                        { fr: "la farine", ipa: "/la faʁin/", type: "n.f.", meaning: "bột mì", ex: "Il faut 250 grammes de farine." },
+                        { fr: "le lait", ipa: "/lə lɛ/", type: "n.m.", meaning: "sữa", ex: "Ajoutez un demi-litre de lait." },
+                        { fr: "un œuf / des œufs", ipa: "/œ̃ nœf/", type: "n.m.", meaning: "trứng", ex: "Il faut quatre œufs." },
+                        { fr: "le beurre", ipa: "/lə bœʁ/", type: "n.m.", meaning: "bơ", ex: "Mettez un peu de beurre." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Mạo từ bộ phận (Articles partitifs)",
+                            definition: "Dùng trước danh từ chỉ số lượng không đếm được (thực phẩm, chất lỏng).",
+                            formula: "du (đực) | de la (cái) | de l' (nguyên âm) | des (số nhiều)",
+                            example: "Je bois du café et je mange de la salade.",
+                            note: "QUAN TRỌNG: Trong câu phủ định tuyệt đối (ne... pas), mạo từ bộ phận chuyển thành de (hoặc d')."
+                        },
+                        {
+                            title: "2. Động từ BOIRE (Uống)",
+                            definition: "Động từ bất quy tắc nhóm 3.",
+                            formula: "Je bois, tu bois, il boit, nous buvons, vous buvez, ils boivent.",
+                            example: "Qu'est-ce que vous buvez ?",
+                            note: "Chú ý gốc buv- ở ngôi chúng tôi và các bạn."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Mua sắm nguyên liệu nấu ăn", dialog: "– Combien de farine est-ce qu'il faut ?\n– Il faut 250 grammes de farine." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1701, type: "qcm",
+                            question: "Chọn dạng đúng trong câu phủ định: 'Je ne bois pas __________ café.'",
+                            options: ["du", "de la", "de", "des"],
+                            answer: 2,
+                            explanation: "Trong câu phủ định (ne... pas), mạo từ bộ phận du chuyển thành de."
+                        }
+                    ]
+                },
+                {
+                    id: 18,
+                    title: "Leçon 18: Il est comment ?",
+                    unit: "Unité 5",
+                    summary: "Quá khứ kép với AVOIR, tính từ beau và mua sắm quần áo.",
+                    vocab: [
+                        { fr: "un pull", ipa: "/œ̃ pyl/", type: "n.m.", meaning: "áo len", ex: "J'ai acheté un beau pull." },
+                        { fr: "un dessert", ipa: "/œ̃ desɛʁ/", type: "n.m.", meaning: "món tráng miệng", ex: "Comme dessert, je prends un gâteau." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Quá khứ kép với AVOIR (Passé composé)",
+                            definition: "Dùng để kể lại hành động đã hoàn thành trong quá khứ.",
+                            formula: "Sujet + AVOIR (présent) + Participe passé (-é, -i, hoặc bất quy tắc)",
+                            example: "J'ai acheté une robe. Nous avons pris le train.",
+                            note: "Các bất quy tắc quan trọng: faire->fait, prendre->pris, boire->bu, avoir->eu, être->été."
+                        },
+                        {
+                            title: "2. Các dạng đặc biệt của tính từ BEAU",
+                            definition: "Tính từ miêu tả có nhiều hình thái giống số.",
+                            formula: "beau (đực số ít) | bel (đực trước nguyên âm/h câm) | belle (cái số ít) | beaux (đực số nhiều) | belles (cái số nhiều)",
+                            example: "Un beau pull, un bel appartement, une belle robe.",
+                            note: "Dạng 'bel' dùng trước danh từ giống đực bắt đầu bằng nguyên âm (ex: bel homme)."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Kể lại hoạt động hôm qua", dialog: "– Qu'est-ce que tu as fait hier ?\n– J'ai fait les magasins et j'ai acheté un pull." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1801, type: "conjugaison",
+                            question: "Chia quá khứ kép: Hier, nous (acheter) __________ une belle voiture.",
+                            options: ["avons acheté", "sommes achetés", "avons achetés", "avons achetons"],
+                            answer: 0,
+                            explanation: "Trợ động từ avoir (avons) + participe passé (-é -> acheté)."
+                        },
+                        {
+                            id: 1802, type: "qcm",
+                            question: "Chọn tính từ beau phù hợp: C'est un __________ appartement.",
+                            options: ["beau", "bel", "belle", "beaux"],
+                            answer: 1,
+                            explanation: "Appartement là danh từ giống đực bắt đầu bằng nguyên âm (a), dùng bel."
+                        }
+                    ]
+                },
+                {
+                    id: 19,
+                    title: "Leçon 19: Chère Léa...",
+                    unit: "Unité 5",
+                    summary: "Quá khứ kép với ÊTRE, sự hòa hợp phân từ, giới từ pour và dans.",
+                    vocab: [
+                        { fr: "un monument", ipa: "/œ̃ mɔnymɑ̃/", type: "n.m.", meaning: "đài tưởng niệm, công trình", ex: "Visiter les monuments de Paris." },
+                        { fr: "marcher", ipa: "/maʁʃe/", type: "v.", meaning: "đi bộ", ex: "Nous avons marché toute la journée." },
+                        { fr: "rentrer", ipa: "/ʁɑ̃tʁe/", type: "v.", meaning: "trở về nhà", ex: "Nous sommes rentrés à minuit." }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Quá khứ kép với ÊTRE (Passé composé avec être)",
+                            definition: "Dùng cho 14 động từ chuyển động/trạng thái (Dr & Mrs Vandertramp) và mọi động từ phản thân.",
+                            formula: "Sujet + ÊTRE (présent) + Participe passé (HÒA HỢP giống và số)",
+                            example: "Elle est allée au musée. / Mes sœurs sont venues.",
+                            note: "QUAN TRỌNG: Chủ ngữ nữ thêm -e, số nhiều thêm -s/-es."
+                        },
+                        {
+                            title: "2. Phân biệt POUR vs DANS",
+                            definition: "Diễn đạt khoảng thời gian.",
+                            formula: "POUR + thời lượng dự định của hành động (Ils partent pour 2 jours) | DANS + khoảng thời gian sau đó sự việc xảy ra (Je rentre dans 3 jours)",
+                            example: "Il part en Italie pour deux semaines. Le train arrive dans 10 minutes.",
+                            note: "Pour chỉ độ dài chuyến đi, Dans chỉ mốc thời gian trong tương lai."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Hỏi về chuyến đi", dialog: "– Tu es resté combien de temps ?\n– Je suis resté une semaine." }
+                    ],
+                    exercises: [
+                        {
+                            id: 1901, type: "conjugaison",
+                            question: "Chia động từ quá khứ kép với être: Hier, Marie (aller) __________ au cinéma.",
+                            options: ["est allée", "a allé", "est allé", "sont allés"],
+                            answer: 0,
+                            explanation: "Marie là giống cái số ít, trợ động từ être (est) + allé + e -> est allée."
+                        }
+                    ]
+                },
+                {
+                    id: 20,
+                    title: "Leçon 20: Les fêtes",
+                    unit: "Unité 5",
+                    summary: "Các ngày lễ truyền thống, lời chúc mừng và đại từ tân ngữ gián tiếp COI (lui, leur).",
+                    vocab: [
+                        { fr: "Noël", ipa: "/nɔɛl/", type: "n.m.", meaning: "Lễ Giáng sinh (25/12)", ex: "Joyeux Noël !" },
+                        { fr: "Le Nouvel An", ipa: "/lə nuvɛl ɑ̃/", type: "n.m.", meaning: "Năm mới (01/01)", ex: "Bonne année !" },
+                        { fr: "un anniversaire", ipa: "/œ̃.n‿aniʁsɛʁ/", type: "n.m.", meaning: "sinh nhật", ex: "Bon anniversaire !" }
+                    ],
+                    grammar: [
+                        {
+                            title: "1. Đại từ tân ngữ gián tiếp COI (LUI, LEUR)",
+                            definition: "Thay thế cho cụm danh từ chỉ người đi sau giới từ à.",
+                            formula: "LUI = à + 1 người (số ít) | LEUR = à + nhiều người (số nhiều). Đứng trước động từ.",
+                            example: "Je téléphone à Paul -> Je lui téléphone. / Je parle à mes parents -> Je leur parle.",
+                            note: "Không phân biệt giống đực hay cái, chỉ phân biệt số ít (lui) và số nhiều (leur)."
+                        }
+                    ],
+                    communication: [
+                        { situation: "Tặng quà và chúc mừng", dialog: "– Qu'est-ce qu'on lui offre pour son anniversaire ?\n– Offrons-lui un livre !" }
+                    ],
+                    exercises: [
+                        {
+                            id: 2001, type: "transformez",
+                            question: "Thay thế từ gạch chân bằng COI: 'Je téléphone à ma mère.' -> 'Je __________ téléphone.'",
+                            options: ["lui", "leur", "le", "la"],
+                            answer: 0,
+                            explanation: "'à ma mère' là 1 người số ít, thay thế bằng 'lui'."
+                        }
+                    ]
+                }
+            ],
+            readings: [
+                {
+                    id: 1,
+                    title: "Vacances à Marseille",
+                    type: "Email",
+                    text: "De: Thomas (thomas@yahoo.fr)\nÀ: Lucas (lucas@gmail.com)\nObjet: Vacances à Marseille\n\nSalut Lucas,\nSamedi dernier, je suis arrivé à Marseille avec ma famille. Nous sommes partis de Paris en TGV. Le voyage était très rapide (3 heures). Nous habitons dans un grand appartement près du Vieux-Port. Hier, il a fait très beau, alors nous avons visité les calanques en bateau et nous avons mangé du poisson dans un petit restaurant. C'était délicieux ! Demain, nous allons visiter le château d'If. Et toi, que fais-tu cet été ?\nÀ bientôt,\nThomas.",
+                    questions: [
+                        { q: "Comment Thomas est-il allé à Marseille ?", options: ["En bus", "En avion", "En TGV"], answer: 2 },
+                        { q: "Combien de temps le voyage a-t-il duré ?", options: ["2 heures", "3 heures", "5 heures"], answer: 1 },
+                        { q: "Qu'est-ce qu'ils ont fait hier ?", options: ["Visité le château d'If", "Visité les calanques en bateau", "Pris le métro"], answer: 1 },
+                        { q: "Qu'est-ce qu'ils vont faire demain ?", options: ["Visiter le château d'If", "Prendre le train", "Aller à la plage"], answer: 0 }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "Petite annonce immobilière",
+                    type: "Annonce",
+                    text: "Tours centre, appartement 3 pièces, 65 m², 2e étage avec ascenseur. Comprend: grand salon clair, 2 chambres, cuisine équipée, salle de bains, WC séparé. Immeuble récent, calme, avec parking. Loyer: 650 € / mois. Contactez l'agence Loca-Loisirs au 02 47 08 60 70.",
+                    questions: [
+                        { q: "L'appartement se trouve au deuxième étage.", options: ["Vrai", "Faux"], answer: 0 },
+                        { q: "Il n'y a pas d'ascenseur dans l'immeuble.", options: ["Vrai", "Faux"], answer: 1 },
+                        { q: "L'appartement a deux chambres et un grand salon.", options: ["Vrai", "Faux"], answer: 0 },
+                        { q: "Le loyer est de 600 euros par mois.", options: ["Vrai", "Faux"], answer: 1 }
+                    ]
+                }
+            ],
+            exams: [
+                {
+                    id: 1,
+                    title: "ÉPREUVE DE SYNTHÈSE 1 (60 phút)",
+                    description: "Đề thi tổng hợp bám sát nội dung Leçons 11–20 bao gồm trắc nghiệm từ vựng, ngữ pháp, đọc hiểu và gợi ý viết.",
+                    sections: [
+                        {
+                            name: "Section 1: Vocabulaire & Grammaire (12 điểm)",
+                            questions: [
+                                { id: 101, q: "Demain, nous __________ en vacances à la mer.", options: ["allons partir", "sommes partis", "partons", "partirons"], answer: 0, exp: "Futur proche: aller (présent) + verbe à l'infinitif." },
+                                { id: 102, q: "Tous les matins, elle __________ à 7 heures.", options: ["se lève", "te lèves", "se lèvent", "levons"], answer: 0, exp: "Động từ phản thân ngôi elle: elle se lève." },
+                                { id: 103, q: "Hier soir, Marie __________ au cinéma.", options: ["est allée", "a allé", "est allé", "sont allés"], answer: 0, exp: "Động từ aller chia passé composé với être + e (Marie)." },
+                                { id: 104, q: "Pour le petit déjeuner, je bois __________ café.", options: ["du", "de la", "de l'", "des"], answer: 0, exp: "Café là danh từ giống đực, dùng mạo từ bộ phận du." },
+                                { id: 105, q: "Elle ne mange pas __________ viande.", options: ["de la", "de", "du", "des"], answer: 1, exp: "Trong câu phủ định, mạo từ bộ phận chuyển thành de." },
+                                { id: 106, q: "Il va au travail __________ métro.", options: ["en", "à", "par", "sur"], answer: 0, exp: "Phương tiện kín dùng en." },
+                                { id: 107, q: "L'hôtel se trouve __________ bord de la mer.", options: ["au", "à la", "en", "du"], answer: 0, exp: "Cụm cố định: au bord de." },
+                                { id: 108, q: "Je téléphone __________ pour son anniversaire.", options: ["à ma mère", "ma mère", "lui ma mère", "à son"], answer: 0, exp: "Động từ téléphoner đi với giới từ à." },
+                                { id: 109, q: "Pierre offre des fleurs __________ ses amies.", options: ["à", "aux", "du", "de"], answer: 1, exp: "Offrir à + số nhiều (aux amies)." },
+                                { id: 110, q: "Nous avons réservé une chambre dans un petit __________ près de la plage.", options: ["hôtel", "gare", "aéroport", "bureau"], answer: 0, exp: "Hôtel là nơi để ở lại khi du lịch." }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "ÉPREUVE DE SYNTHÈSE 2 (60 phút)",
+                    description: "Đề thi kiểm tra nâng cao về chia động từ, mạo từ và các cấu trúc nâng cao trong Leçons 11–20.",
+                    sections: [
+                        {
+                            name: "Section 1: Vocabulaire & Grammaire (12 điểm)",
+                            questions: [
+                                { id: 201, q: "Ma sœur est __________ dans une agence immobilière.", options: ["secrétaire", "vendeur", "directeur", "informaticien"], answer: 0, exp: "Secrétaire dùng chung cho cả nam và nữ." },
+                                { id: 202, q: "Qu'est-ce que tu fais __________ sport ?", options: ["comme", "du", "de", "à"], answer: 0, exp: "Cấu trúc: faire comme sport." },
+                                { id: 203, q: "Dimanche dernier, nous __________ au cinéma.", options: ["sommes allés", "avons allé", "allons", "allions"], answer: 0, exp: "Aller chia passé composé với être (sommes allés)." },
+                                { id: 204, q: "Il n'y a pas __________ lait dans le réfrigérateur.", options: ["de", "du", "de la", "des"], answer: 0, exp: "Câu phủ định của mạo từ bộ phận là de." },
+                                { id: 205, q: "Je voudrais réserver une chambre __________ terrasse.", options: ["avec", "en", "dans", "sur"], answer: 0, exp: "Cấu trúc une chambre avec terrasse." },
+                                { id: 206, q: "Vous téléphonez à vos parents ? – Oui, je __________ téléphone.", options: ["leur", "les", "lui", "en"], answer: 0, exp: "Thay thế cho à vos parents (số nhiều) bằng leur." },
+                                { id: 207, q: "C'est un __________ appartement au centre-ville.", options: ["bel", "beau", "belle", "beaux"], answer: 0, exp: "Appartement bắt đầu bằng nguyên âm nên dùng bel." },
+                                { id: 208, q: "Demain matin, il __________ du beau temps.", options: ["fera", "fait", "a fait", "faisait"], answer: 0, exp: "Demain chỉ tương lai (fera)." },
+                                { id: 209, q: "Il part en Italie __________ deux semaines.", options: ["pour", "dans", "en", "pendant"], answer: 0, exp: "Pour chỉ khoảng thời gian dự định của chuyến đi." },
+                                { id: 210, q: "Le train arrive __________ dix minutes.", options: ["dans", "pour", "en", "à"], answer: 0, exp: "Dans chỉ mốc thời gian trong tương lai (trong vòng 10 phút nữa)." }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // --- LOCAL STORAGE STATE MANAGEMENT ---
+        let appState = JSON.parse(localStorage.getItem('taxi_app_state')) || {
+            completedLessons: [],
+            quizScores: {},
+            examScores: {},
+            vocabMastered: []
+        };
+
+        function saveState() {
+            localStorage.setItem('taxi_app_state', JSON.stringify(appState));
+            const statusEl = document.getElementById('storage-status');
+            if(statusEl) {
+                statusEl.innerHTML = '<i class="fa-solid fa-circle text-[8px] mr-1"></i> Đã lưu';
+                statusEl.className = 'font-semibold text-emerald-600 flex items-center';
+            }
+        }
+
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const msgEl = document.getElementById('toast-message');
+            const iconEl = document.getElementById('toast-icon');
+            
+            msgEl.textContent = message;
+            if(isError) {
+                iconEl.className = 'fa-solid fa-circle-exclamation text-red-400';
+            } else {
+                iconEl.className = 'fa-solid fa-circle-check text-emerald-400';
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function resetAllData() {
+            if(confirm("Bạn có chắc chắn muốn xóa toàn bộ tiến độ học tập không?")) {
+                localStorage.removeItem('taxi_app_state');
+                appState = { completedLessons: [], quizScores: {}, examScores: {}, vocabMastered: [] };
+                showToast("Đã đặt lại dữ liệu tiến độ thành công!");
+                switchView(currentView);
+            }
+        }
+
+        // --- VIEW ROUTER ---
+        let currentView = 'dashboard';
+        let currentLessonId = 11;
+
+        function switchView(viewName, param = null) {
+            currentView = viewName;
+            if(param && viewName === 'lessons') currentLessonId = param;
+
+            // Highlight nav
+            document.querySelectorAll('.nav-link').forEach(el => {
+                if(el.getAttribute('data-view') === viewName) {
+                    el.className = 'nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-semibold text-sm bg-blue-50 text-blue-600 transition-colors shadow-sm';
+                } else {
+                    el.className = 'nav-link flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium text-sm text-slate-600 hover:bg-slate-100 transition-colors';
+                }
+            });
+
+            // Close mobile sidebar
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+            document.getElementById('sidebar-backdrop').classList.add('hidden');
+
+            const container = document.getElementById('main-content');
+            container.innerHTML = '';
+
+            switch(viewName) {
+                case 'dashboard': renderDashboard(container); break;
+                case 'lessons': renderLessonsView(container, currentLessonId); break;
+                case 'vocab': renderVocabView(container); break;
+                case 'grammar': renderGrammarView(container); break;
+                case 'reading': renderReadingView(container); break;
+                case 'writing': renderWritingView(container); break;
+                case 'exams': renderExamsView(container); break;
+                case 'results': renderResultsView(container); break;
+                default: renderDashboard(container);
+            }
+            container.scrollTop = 0;
+        }
+
+        // --- RENDER VIEWS ---
+
+        function renderDashboard(container) {
+            const totalLessons = courseData.lessons.length;
+            const completedCount = appState.completedLessons.length;
+            const percent = Math.round((completedCount / totalLessons) * 100);
+
+            container.innerHTML = `
+                <div class="max-w-5xl mx-auto space-y-8 animate-fadeIn">
+                    <!-- Welcome Banner -->
+                    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-6 md:p-8 text-white shadow-xl shadow-blue-500/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div class="space-y-2">
+                            <span class="bg-white/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Trình độ A1–A2</span>
+                            <h1 class="text-2xl md:text-3xl font-bold">Le Nouveau Taxi ! 1 (Leçons 11–20)</h1>
+                            <p class="text-blue-100 text-sm md:text-base max-w-xl">Hệ thống học tập, ôn ngữ pháp, từ vựng và luyện thi toàn diện giúp bạn chinh phục tiếng Pháp hiệu quả.</p>
+                        </div>
+                        <button onclick="switchView('lessons', 11)" class="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-xl shadow-md transition-all flex items-center space-x-2 text-sm shrink-0">
+                            <span>Tiếp tục học</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-4">
+                            <div class="bg-blue-50 text-blue-600 p-3.5 rounded-xl text-xl"><i class="fa-solid fa-book-open"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-medium">Tiến độ bài học</div>
+                                <div class="text-xl font-bold text-slate-800">${completedCount}/${totalLessons} <span class="text-xs text-slate-400 font-normal">(${percent}%)</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-4">
+                            <div class="bg-indigo-50 text-indigo-600 p-3.5 rounded-xl text-xl"><i class="fa-solid fa-language"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-medium">Từ vựng đã học</div>
+                                <div class="text-xl font-bold text-slate-800">${courseData.lessons.reduce((acc, l) => acc + l.vocab.length, 0)} từ</div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-4">
+                            <div class="bg-amber-50 text-amber-600 p-3.5 rounded-xl text-xl"><i class="fa-solid fa-spell-check"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-medium">Chủ điểm ngữ pháp</div>
+                                <div class="text-xl font-bold text-slate-800">${courseData.lessons.reduce((acc, l) => acc + l.grammar.length, 0)} chủ đề</div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-4">
+                            <div class="bg-emerald-50 text-emerald-600 p-3.5 rounded-xl text-xl"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-medium">Đề thi thử sẵn sàng</div>
+                                <div class="text-xl font-bold text-slate-800">2 Đề thi A1-A2</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Navigation Cards -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-lg font-bold text-slate-900">Danh sách bài học (Unité 3 – 5)</h2>
+                            <button onclick="switchView('lessons')" class="text-sm font-semibold text-blue-600 hover:text-blue-700">Xem tất cả <i class="fa-solid fa-angle-right ml-1"></i></button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${courseData.lessons.slice(0, 6).map(l => `
+                                <div onclick="switchView('lessons', ${l.id})" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all cursor-pointer flex flex-col justify-between">
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-lg">${l.unit}</span>
+                                            ${appState.completedLessons.includes(l.id) ? '<span class="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded"><i class="fa-solid fa-check mr-1"></i> Hoàn thành</span>' : ''}
+                                        </div>
+                                        <h3 class="font-bold text-slate-800 text-base">${l.title}</h3>
+                                        <p class="text-xs text-slate-500 line-clamp-2">${l.summary}</p>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-blue-600">
+                                        <span>Bắt đầu học</span>
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- LESSON VIEWER ---
+        let activeLessonTab = 'vocab';
+
+        function renderLessonsView(container, lessonId) {
+            const lesson = courseData.lessons.find(l => l.id === lessonId) || courseData.lessons[0];
+            const isCompleted = appState.completedLessons.includes(lesson.id);
+
+            container.innerHTML = `
+                <div class="max-w-5xl mx-auto space-y-6">
+                    <!-- Top Bar: Lesson Selector -->
+                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center space-x-3 w-full sm:w-auto">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Bài học:</span>
+                            <select id="lesson-select" onchange="switchView('lessons', parseInt(this.value))" class="bg-slate-50 border border-slate-200 text-slate-800 font-semibold rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+                                ${courseData.lessons.map(l => `<option value="${l.id}" ${l.id === lesson.id ? 'selected' : ''}>${l.title} (${l.unit})</option>`).join('')}
+                            </select>
+                        </div>
+                        <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+                            <button onclick="toggleLessonComplete(${lesson.id})" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center space-x-2 ${isCompleted ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">
+                                <i class="fa-solid ${isCompleted ? 'fa-check-circle' : 'fa-circle'}"></i>
+                                <span>${isCompleted ? 'Đã hoàn thành bài học' : 'Đánh dấu hoàn thành'}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Lesson Header Card -->
+                    <div class="bg-gradient-to-r from-slate-900 to-indigo-900 text-white rounded-3xl p-6 md:p-8 shadow-xl">
+                        <span class="text-xs font-semibold bg-blue-500/30 text-blue-200 px-3 py-1 rounded-full uppercase tracking-wider">${lesson.unit}</span>
+                        <h1 class="text-2xl md:text-3xl font-bold mt-3">${lesson.title}</h1>
+                        <p class="text-slate-300 text-sm mt-2 max-w-2xl">${lesson.summary}</p>
+                    </div>
+
+                    <!-- Lesson Tabs -->
+                    <div class="flex space-x-1 bg-white p-1.5 rounded-2xl border border-slate-100 shadow-sm overflow-x-auto">
+                        <button onclick="setLessonTab('vocab')" class="lesson-tab px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${activeLessonTab === 'vocab' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}"><i class="fa-solid fa-language mr-1.5"></i> 1. Vocabulaire</button>
+                        <button onclick="setLessonTab('grammar')" class="lesson-tab px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${activeLessonTab === 'grammar' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}"><i class="fa-solid fa-spell-check mr-1.5"></i> 2. Grammaire</button>
+                        <button onclick="setLessonTab('comm')" class="lesson-tab px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${activeLessonTab === 'comm' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}"><i class="fa-solid fa-comments mr-1.5"></i> 3. Communication</button>
+                        <button onclick="setLessonTab('exercises')" class="lesson-tab px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${activeLessonTab === 'exercises' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}"><i class="fa-solid fa-pen-to-square mr-1.5"></i> 4. Exercices</button>
+                    </div>
+
+                    <!-- Tab Content Container -->
+                    <div id="lesson-tab-content" class="space-y-4">
+                        ${renderLessonTabContent(lesson, activeLessonTab)}
+                    </div>
+                </div>
+            `;
+        }
+
+        function setLessonTab(tab) {
+            activeLessonTab = tab;
+            const lesson = courseData.lessons.find(l => l.id === currentLessonId);
+            document.querySelectorAll('.lesson-tab').forEach(btn => {
+                btn.className = 'lesson-tab px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap text-slate-600 hover:bg-slate-50';
+            });
+            event.currentTarget.className = 'lesson-tab px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap bg-blue-600 text-white shadow-md';
+            document.getElementById('lesson-tab-content').innerHTML = renderLessonTabContent(lesson, tab);
+        }
+
+        function renderLessonTabContent(lesson, tab) {
+            if (tab === 'vocab') {
+                return `
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                        <div class="p-5 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                            <h3 class="font-bold text-slate-800 text-base">Từ vựng trọng tâm (${lesson.vocab.length} từ)</h3>
+                            <span class="text-xs text-slate-400">Phát âm IPA & Ví dụ chuẩn</span>
+                        </div>
+                        <div class="divide-y divide-slate-100">
+                            ${lesson.vocab.map(v => `
+                                <div class="p-5 hover:bg-slate-50/50 transition-colors grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                                    <div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="font-bold text-blue-600 text-base">${v.fr}</span>
+                                            <span class="text-xs px-2 py-0.5 bg-slate-100 text-slate-600 rounded font-mono">${v.type}</span>
+                                        </div>
+                                        <span class="text-xs text-slate-400 font-mono">${v.ipa}</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-sm font-semibold text-slate-800">${v.meaning}</span>
+                                    </div>
+                                    <div class="bg-blue-50/50 p-3 rounded-xl border border-blue-100/50">
+                                        <p class="text-xs text-slate-600 italic">"${v.ex}"</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'grammar') {
+                return `
+                    <div class="space-y-4">
+                        ${lesson.grammar.map((g, idx) => `
+                            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-blue-50 text-blue-600 w-8 h-8 rounded-xl flex items-center justify-center font-bold text-sm">${idx + 1}</div>
+                                    <h3 class="font-bold text-slate-900 text-lg">${g.title}</h3>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                    <div class="bg-slate-50 p-4 rounded-xl space-y-1">
+                                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Định nghĩa & Công thức</span>
+                                        <p class="text-slate-800 font-medium">${g.definition}</p>
+                                        <p class="text-xs text-blue-700 font-mono bg-blue-50 p-2 rounded mt-2"><strong>Formula:</strong> ${g.formula}</p>
+                                    </div>
+                                    <div class="bg-indigo-50/50 p-4 rounded-xl space-y-1">
+                                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Ví dụ & Lưu ý</span>
+                                        <p class="text-slate-800 italic">"${g.example}"</p>
+                                        <p class="text-xs text-slate-600 mt-2"><strong>Lưu ý:</strong> ${g.note}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (tab === 'comm') {
+                return `
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-6">
+                        <h3 class="font-bold text-slate-900 text-base">Tình huống giao tiếp thực tế</h3>
+                        <div class="space-y-4">
+                            ${lesson.communication.map(c => `
+                                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 space-y-2">
+                                    <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider"><i class="fa-solid fa-circle-question mr-1"></i> ${c.situation}</span>
+                                    <pre class="whitespace-pre-wrap font-sans text-sm text-slate-800 bg-white p-4 rounded-xl border border-slate-100">${c.dialog}</pre>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'exercises') {
+                return `
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-base">Bài tập thực hành bài ${lesson.id}</h3>
+                            <span class="text-xs text-slate-400">Hoàn thành bài tập và kiểm tra đáp án</span>
+                        </div>
+                        <div class="space-y-6">
+                            ${lesson.exercises.map((ex, idx) => `
+                                <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200/60 space-y-3" id="ex-container-${ex.id}">
+                                    <div class="flex items-start justify-between">
+                                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-lg">Câu ${idx + 1} (${ex.type})</span>
+                                    </div>
+                                    <p class="font-semibold text-slate-800 text-sm">${ex.question}</p>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                                        ${ex.options.map((opt, oIdx) => `
+                                            <button onclick="checkLessonExercise(${ex.id}, ${oIdx}, ${ex.answer})" class="ex-opt-${ex.id} text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300 transition-all">
+                                                ${String.fromCharCode(65 + oIdx)}. ${opt}
+                                            </button>
+                                        `).join('')}
+                                    </div>
+                                    <div id="ex-result-${ex.id}" class="hidden mt-3 p-3 rounded-xl text-xs font-medium"></div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function toggleLessonComplete(id) {
+            if(appState.completedLessons.includes(id)) {
+                appState.completedLessons = appState.completedLessons.filter(i => i !== id);
+                showToast("Đã hủy đánh dấu hoàn thành!");
+            } else {
+                appState.completedLessons.push(id);
+                showToast("Đã đánh dấu hoàn thành bài học!");
+            }
+            saveState();
+            switchView('lessons', id);
+        }
+
+        function checkLessonExercise(exId, chosen, correct) {
+            const container = document.getElementById(`ex-container-${exId}`);
+            const resultDiv = document.getElementById(`ex-result-${exId}`);
+            const buttons = container.querySelectorAll(`button`);
+
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if(idx === correct) {
+                    btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-emerald-100 border border-emerald-300 text-emerald-800';
+                } else if(idx === chosen && chosen !== correct) {
+                    btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-red-100 border border-red-300 text-red-800';
+                } else {
+                    btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-slate-100 border border-slate-200 text-slate-400 opacity-60';
+                }
+            });
+
+            resultDiv.classList.remove('hidden');
+            const exData = courseData.lessons.flatMap(l => l.exercises).find(e => e.id === exId);
+
+            if(chosen === correct) {
+                resultDiv.className = 'mt-3 p-3 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200';
+                resultDiv.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <strong>Chính xác!</strong> ${exData.explanation}`;
+            } else {
+                resultDiv.className = 'mt-3 p-3 rounded-xl text-xs font-medium bg-red-50 text-red-800 border border-red-200';
+                resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 mr-1.5"></i> <strong>Chưa chính xác.</strong> ${exData.explanation}`;
+            }
+        }
+
+        // --- VOCABULARY FLASHCARD & QUIZ VIEW ---
+        let currentVocabIndex = 0;
+        let isFlashcardFlipped = false;
+
+        function renderVocabView(container) {
+            const allVocab = courseData.lessons.flatMap(l => l.vocab);
+            const currentItem = allVocab[currentVocabIndex];
+
+            container.innerHTML = `
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900">Flashcards Từ vựng (Leçons 11–20)</h2>
+                            <p class="text-xs text-slate-500">Luyện ghi nhớ từ vựng tiếng Pháp với phát âm IPA và ví dụ.</p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1.5 bg-blue-50 text-blue-600 rounded-xl">Thẻ ${currentVocabIndex + 1} / ${allVocab.length}</span>
+                    </div>
+
+                    <!-- Flashcard Card -->
+                    <div onclick="flipFlashcard()" class="perspective-1000 w-full h-80 cursor-pointer">
+                        <div id="flashcard-inner" class="relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-3xl ${isFlashcardFlipped ? 'rotate-y-180' : ''}">
+                            <!-- Front -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-3xl p-8 flex flex-col justify-between backface-hidden shadow-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs bg-white/20 px-3 py-1 rounded-full uppercase">Tiếng Pháp</span>
+                                    <span class="text-xs opacity-80"><i class="fa-solid fa-rotate mr-1"></i> Nhấn để lật</span>
+                                </div>
+                                <div class="text-center space-y-2">
+                                    <h3 class="text-3xl font-bold">${currentItem.fr}</h3>
+                                    <p class="text-sm font-mono opacity-85">${currentItem.ipa} (${currentItem.type})</p>
+                                </div>
+                                <div class="text-center text-xs opacity-70">Gợi ý: Nhấn vào thẻ để xem nghĩa tiếng Việt</div>
+                            </div>
+                            <!-- Back -->
+                            <div class="absolute inset-0 bg-white text-slate-900 rounded-3xl p-8 flex flex-col justify-between backface-hidden rotate-y-180 border border-slate-100 shadow-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full uppercase font-semibold">Nghĩa tiếng Việt</span>
+                                    <span class="text-xs text-slate-400"><i class="fa-solid fa-rotate mr-1"></i> Nhấn để quay lại</span>
+                                </div>
+                                <div class="text-center space-y-3">
+                                    <h3 class="text-2xl font-bold text-emerald-600">${currentItem.meaning}</h3>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                        <p class="text-xs text-slate-600 italic">"${currentItem.ex}"</p>
+                                    </div>
+                                </div>
+                                <div class="text-center text-xs text-slate-400">Sẵn sàng từ tiếp theo!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="flex justify-between items-center">
+                        <button onclick="prevFlashcard()" class="px-5 py-3 rounded-xl font-semibold text-xs bg-white border border-slate-200 hover:bg-slate-50 shadow-sm transition-all flex items-center space-x-2">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Từ trước</span>
+                        </button>
+                        <button onclick="nextFlashcard()" class="px-5 py-3 rounded-xl font-semibold text-xs bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all flex items-center space-x-2">
+                            <span>Từ tiếp theo</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function flipFlashcard() {
+            isFlashcardFlipped = !isFlashcardFlipped;
+            const inner = document.getElementById('flashcard-inner');
+            if(isFlashcardFlipped) {
+                inner.classList.add('rotate-y-180');
+            } else {
+                inner.classList.remove('rotate-y-180');
+            }
+        }
+
+        function nextFlashcard() {
+            isFlashcardFlipped = false;
+            const allVocab = courseData.lessons.flatMap(l => l.vocab);
+            currentVocabIndex = (currentVocabIndex + 1) % allVocab.length;
+            renderVocabView(document.getElementById('main-content'));
+        }
+
+        function prevFlashcard() {
+            isFlashcardFlipped = false;
+            const allVocab = courseData.lessons.flatMap(l => l.vocab);
+            currentVocabIndex = (currentVocabIndex - 1 + allVocab.length) % allVocab.length;
+            renderVocabView(document.getElementById('main-content'));
+        }
+
+        // --- GRAMMAR VIEW ---
+        function renderGrammarView(container) {
+            const allGrammar = courseData.lessons.flatMap(l => l.grammar);
+
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+                        <h2 class="text-xl font-bold text-slate-900">Ngân hàng Ngữ pháp (Leçons 11–20)</h2>
+                        <p class="text-xs text-slate-500 mt-1">Tổng hợp toàn bộ các chủ điểm ngữ pháp trọng tâm theo chuẩn A1–A2.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        ${allGrammar.map((g, idx) => `
+                            <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-blue-50 text-blue-600 w-8 h-8 rounded-xl flex items-center justify-center font-bold text-xs">${idx + 1}</div>
+                                    <h3 class="font-bold text-slate-900 text-base">${g.title}</h3>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm pt-2">
+                                    <div class="bg-slate-50 p-4 rounded-2xl space-y-1">
+                                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Định nghĩa & Công thức</span>
+                                        <p class="text-slate-800 font-medium">${g.definition}</p>
+                                        <p class="text-xs text-blue-700 font-mono bg-blue-50 p-2 rounded mt-2"><strong>Formula:</strong> ${g.formula}</p>
+                                    </div>
+                                    <div class="bg-indigo-50/50 p-4 rounded-2xl space-y-1">
+                                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Ví dụ & Lưu ý</span>
+                                        <p class="text-slate-800 italic">"${g.example}"</p>
+                                        <p class="text-xs text-slate-600 mt-2"><strong>Lưu ý:</strong> ${g.note}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- READING COMPREHENSION VIEW ---
+        function renderReadingView(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+                        <h2 class="text-xl font-bold text-slate-900">Compréhension écrite (Đọc hiểu)</h2>
+                        <p class="text-xs text-slate-500 mt-1">Luyện tập kỹ năng đọc hiểu văn bản, email và quảng cáo tiếng Pháp.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        ${courseData.readings.map(r => `
+                            <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                    <h3 class="font-bold text-slate-900 text-lg">${r.title}</h3>
+                                    <span class="text-xs bg-blue-50 text-blue-600 font-semibold px-3 py-1 rounded-full">${r.type}</span>
+                                </div>
+                                <pre class="whitespace-pre-wrap font-sans text-sm text-slate-700 bg-slate-50 p-5 rounded-2xl border border-slate-200/60 leading-relaxed">${r.text}</pre>
+                                
+                                <div class="space-y-4 pt-2">
+                                    <h4 class="font-bold text-slate-800 text-sm">Câu hỏi đọc hiểu:</h4>
+                                    ${r.questions.map((q, qIdx) => `
+                                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 space-y-3" id="reading-${r.id}-q-${qIdx}">
+                                            <p class="font-semibold text-slate-800 text-xs">Câu ${qIdx + 1}: ${q.q}</p>
+                                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                                ${q.options.map((opt, oIdx) => `
+                                                    <button onclick="checkReading(${r.id}, ${qIdx}, ${oIdx}, ${q.answer})" class="reading-btn-${r.id}-${qIdx} text-left px-3 py-2 rounded-xl text-xs font-medium bg-white border border-slate-200 hover:bg-blue-50 transition-all">
+                                                        ${String.fromCharCode(65 + oIdx)}. ${opt}
+                                                    </button>
+                                                `).join('')}
+                                            </div>
+                                            <div id="reading-res-${r.id}-${qIdx}" class="hidden text-xs font-semibold"></div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkReading(rId, qIdx, chosen, correct) {
+            const container = document.getElementById(`reading-${rId}-q-${qIdx}`);
+            const buttons = container.querySelectorAll('button');
+            const resDiv = document.getElementById(`reading-res-${rId}-${qIdx}`);
+
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if(idx === correct) {
+                    btn.className = 'text-left px-3 py-2 rounded-xl text-xs font-medium bg-emerald-100 border border-emerald-300 text-emerald-800';
+                } else if(idx === chosen && chosen !== correct) {
+                    btn.className = 'text-left px-3 py-2 rounded-xl text-xs font-medium bg-red-100 border border-red-300 text-red-800';
+                } else {
+                    btn.className = 'text-left px-3 py-2 rounded-xl text-xs font-medium bg-slate-100 border border-slate-200 text-slate-400 opacity-60';
+                }
+            });
+
+            resDiv.classList.remove('hidden');
+            if(chosen === correct) {
+                resDiv.className = 'text-xs font-semibold text-emerald-600 mt-2';
+                resDiv.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Chính xác!';
+            } else {
+                resDiv.className = 'text-xs font-semibold text-red-600 mt-2';
+                resDiv.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1"></i> Chưa chính xác.';
+            }
+        }
+
+        // --- PRODUCTION ÉCRITE VIEW ---
+        function renderWritingView(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+                        <h2 class="text-xl font-bold text-slate-900">Production écrite (Luyện viết)</h2>
+                        <p class="text-xs text-slate-500 mt-1">Rèn luyện kỹ năng viết bưu thiếp, email, kể chuyện và miêu tả theo chuẩn A1–A2.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                            <span class="text-xs bg-blue-50 text-blue-600 font-semibold px-3 py-1 rounded-full">Chủ đề 1</span>
+                            <h3 class="font-bold text-slate-900 text-base">Rédiger une carte postale</h3>
+                            <p class="text-xs text-slate-600">Viết một bưu thiếp ngắn (40–50 từ) gửi cho bạn kể về kỳ nghỉ của bạn ở Marseille (nơi ở, thời tiết, hoạt động).</p>
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 space-y-2">
+                                <span class="text-xs font-bold text-slate-700">Bài mẫu tham khảo:</span>
+                                <p class="text-xs text-slate-700 italic">"Cher Thomas, Je suis en vacances à Marseille. C'est une ville magnifique au bord de la mer. J'habite dans un petit appartement au centre-ville. Chaque jour, je visite des musées et je vais à la plage. À bientôt !"</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                            <span class="text-xs bg-indigo-50 text-indigo-600 font-semibold px-3 py-1 rounded-full">Chủ đề 2</span>
+                            <h3 class="font-bold text-slate-900 text-base">Décrire ses loisirs du dimanche</h3>
+                            <p class="text-xs text-slate-600">Viết đoạn văn ngắn (80–100 từ) mô tả thói quen sinh hoạt ngày Chủ nhật của bạn (giờ thức dậy, thể thao, ăn uống).</p>
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 space-y-2">
+                                <span class="text-xs font-bold text-slate-700">Bài mẫu tham khảo:</span>
+                                <p class="text-xs text-slate-700 italic">"Le dimanche est ma journée préférée. En général, je me lève tard, vers 9 heures. D'abord, je prends un grand petit déjeuner. Ensuite, je fais du jogging dans le parc. L'après-midi, je me repose et le soir, je regarde un film."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- EXAMS VIEW (MOCK EXAMS) ---
+        let activeExamId = null;
+        let examAnswers = {};
+        let examSubmitted = false;
+
+        function renderExamsView(container) {
+            if (!activeExamId) {
+                container.innerHTML = `
+                    <div class="max-w-4xl mx-auto space-y-6">
+                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+                            <h2 class="text-xl font-bold text-slate-900">Examens blancs (Đề thi thử A1–A2)</h2>
+                            <p class="text-xs text-slate-500 mt-1">Luyện thi tổng hợp với đồng hồ đếm ngược 60 phút và tự động chấm điểm chi tiết.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${courseData.exams.map(e => `
+                                <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all flex flex-col justify-between space-y-6">
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-xs bg-blue-50 text-blue-600 font-semibold px-3 py-1 rounded-full">60 phút | 20 điểm</span>
+                                        </div>
+                                        <h3 class="font-bold text-slate-900 text-lg">${e.title}</h3>
+                                        <p class="text-xs text-slate-500 leading-relaxed">${e.description}</p>
+                                    </div>
+                                    <button onclick="startExam(${e.id})" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl text-xs shadow-md transition-all flex items-center justify-center space-x-2">
+                                        <span>Bắt đầu làm bài</span>
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else {
+                const exam = courseData.exams.find(e => e.id === activeExamId);
+                container.innerHTML = `
+                    <div class="max-w-3xl mx-auto space-y-6 pb-12">
+                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm sticky top-0 z-20 flex items-center justify-between">
+                            <div>
+                                <h2 class="font-bold text-slate-900 text-base">${exam.title}</h2>
+                                <span class="text-xs text-slate-400">Trình độ A1–A2</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-amber-50 text-amber-700 border border-amber-200 px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span id="exam-timer">59:59</span>
+                                </div>
+                                <button onclick="exitExam()" class="text-slate-400 hover:text-slate-600 text-xs font-semibold px-3 py-2 bg-slate-100 rounded-xl">Thoát</button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            ${exam.sections.map(s => `
+                                <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                                    <h3 class="font-bold text-slate-900 text-base border-b border-slate-100 pb-3">${s.name}</h3>
+                                    <div class="space-y-6">
+                                        ${s.questions.map((q, qIdx) => `
+                                            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200/60 space-y-3">
+                                                <p class="font-semibold text-slate-800 text-sm">Câu ${qIdx + 1}: ${q.q}</p>
+                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                    ${q.options.map((opt, oIdx) => `
+                                                        <button onclick="selectExamAnswer(${q.id}, ${oIdx})" id="exam-btn-${q.id}-${oIdx}" class="text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-white border border-slate-200 hover:bg-blue-50 transition-all">
+                                                            ${String.fromCharCode(65 + oIdx)}. ${opt}
+                                                        </button>
+                                                    `).join('')}
+                                                </div>
+                                                <div id="exam-exp-${q.id}" class="hidden text-xs p-3 rounded-xl mt-2 font-medium"></div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="flex justify-end pt-4">
+                            <button onclick="submitExam()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all text-sm flex items-center space-x-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Nộp bài thi</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                startExamTimer();
+            }
+        }
+
+        let examTimerInterval = null;
+        let timeLeft = 3600;
+
+        function startExam(id) {
+            activeExamId = id;
+            examAnswers = {};
+            examSubmitted = false;
+            timeLeft = 3600;
+            renderExamsView(document.getElementById('main-content'));
+        }
+
+        function exitExam() {
+            if(confirm("Bạn có muốn thoát bài thi không? Tiến trình sẽ không được lưu.")) {
+                clearInterval(examTimerInterval);
+                activeExamId = null;
+                renderExamsView(document.getElementById('main-content'));
+            }
+        }
+
+        function startExamTimer() {
+            clearInterval(examTimerInterval);
+            const timerEl = document.getElementById('exam-timer');
+            examTimerInterval = setInterval(() => {
+                if(timeLeft <= 0) {
+                    clearInterval(examTimerInterval);
+                    submitExam();
+                    return;
+                }
+                timeLeft--;
+                const mins = Math.floor(timeLeft / 60);
+                const secs = timeLeft % 60;
+                if(timerEl) timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function selectExamAnswer(qId, oIdx) {
+            if(examSubmitted) return;
+            examAnswers[qId] = oIdx;
+            const exam = courseData.exams.find(e => e.id === activeExamId);
+            exam.sections.forEach(s => {
+                s.questions.forEach(q => {
+                    if(q.id === qId) {
+                        q.options.forEach((_, optIdx) => {
+                            const btn = document.getElementById(`exam-btn-${qId}-${optIdx}`);
+                            if(optIdx === oIdx) {
+                                btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-blue-600 text-white border border-blue-600 shadow-sm';
+                            } else {
+                                btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-white border border-slate-200 hover:bg-blue-50 transition-all';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        function submitExam() {
+            if(examSubmitted) return;
+            if(!confirm("Bạn có chắc chắn muốn nộp bài thi không?")) return;
+
+            clearInterval(examTimerInterval);
+            examSubmitted = true;
+
+            const exam = courseData.exams.find(e => e.id === activeExamId);
+            let score = 0;
+            let total = 0;
+
+            exam.sections.forEach(s => {
+                s.questions.forEach(q => {
+                    total++;
+                    const chosen = examAnswers[q.id];
+                    const expDiv = document.getElementById(`exam-exp-${q.id}`);
+                    expDiv.classList.remove('hidden');
+
+                    if(chosen === q.answer) {
+                        score++;
+                        expDiv.className = 'text-xs p-3 rounded-xl mt-2 font-medium bg-emerald-50 text-emerald-800 border border-emerald-200';
+                        expDiv.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Chính xác! ${q.exp}`;
+                    } else {
+                        expDiv.className = 'text-xs p-3 rounded-xl mt-2 font-medium bg-red-50 text-red-800 border border-red-200';
+                        expDiv.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> Chưa chính xác. Đáp án đúng: ${String.fromCharCode(65 + q.answer)}. ${q.exp}`;
+                    }
+
+                    q.options.forEach((_, optIdx) => {
+                        const btn = document.getElementById(`exam-btn-${q.id}-${optIdx}`);
+                        btn.disabled = true;
+                        if(optIdx === q.answer) {
+                            btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-emerald-100 border border-emerald-300 text-emerald-800';
+                        } else if(optIdx === chosen && chosen !== q.answer) {
+                            btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-red-100 border border-red-300 text-red-800';
+                        } else {
+                            btn.className = 'text-left px-4 py-2.5 rounded-xl text-xs font-medium bg-slate-100 border border-slate-200 text-slate-400 opacity-60';
+                        }
+                    });
+                });
+            });
+
+            appState.examScores[activeExamId] = { score, total, date: new Date().toLocaleDateString() };
+            saveState();
+            showToast(`Nộp bài thành công! Điểm số: ${score}/${total}`);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- RESULTS & PROGRESS VIEW ---
+        function renderResultsView(container) {
+            const completedCount = appState.completedLessons.length;
+            const totalLessons = courseData.lessons.length;
+            const percent = Math.round((completedCount / totalLessons) * 100);
+
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center justify-between">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900">Tiến độ & Kết quả học tập</h2>
+                            <p class="text-xs text-slate-500 mt-1">Theo dõi quá trình tự học và kết quả các bài thi thử của bạn.</p>
+                        </div>
+                        <button onclick="resetAllData()" class="px-4 py-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-xl text-xs font-semibold transition-colors">
+                            <i class="fa-solid fa-trash mr-1.5"></i> Đặt lại dữ liệu
+                        </button>
+                    </div>
+
+                    <!-- Progress Bar Card -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                        <div class="flex justify-between items-center text-sm font-bold">
+                            <span class="text-slate-800">Tiến độ hoàn thành bài học</span>
+                            <span class="text-blue-600">${percent}%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                            <div class="bg-blue-600 h-full rounded-full transition-all duration-500" style="width: ${percent}%"></div>
+                        </div>
+                        <p class="text-xs text-slate-500">Bạn đã hoàn thành ${completedCount} trên tổng số ${totalLessons} bài học (Leçons 11–20).</p>
+                    </div>
+
+                    <!-- Exam Results History -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                        <h3 class="font-bold text-slate-900 text-base">Lịch sử thi thử (Examens blancs)</h3>
+                        <div class="space-y-3">
+                            ${Object.keys(appState.examScores).length === 0 ? `
+                                <p class="text-xs text-slate-400 italic">Chưa có bài thi nào được hoàn thành. Hãy thử làm bài thi thử tại mục "Examens blancs".</p>
+                            ` : Object.entries(appState.examScores).map(([eId, res]) => `
+                                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Épreuve de Synthèse ${eId}</h4>
+                                        <span class="text-xs text-slate-400">Ngày hoàn thành: ${res.date}</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-base font-bold text-emerald-600">${res.score} / ${res.total}</span>
+                                        <span class="text-xs text-slate-400 block">Điểm số</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- INIT EVENT LISTENERS ---
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.remove('-translate-x-full');
+            document.getElementById('sidebar-backdrop').classList.remove('hidden');
+        });
+
+        document.getElementById('sidebar-backdrop').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+            document.getElementById('sidebar-backdrop').classList.add('hidden');
+        });
+
+        // Load default view on window load
+        window.onload = function() {
+            switchView('dashboard');
+        };
+    </script>
+</body>
+</html>
